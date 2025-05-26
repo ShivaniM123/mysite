@@ -1,0 +1,17 @@
+.radio-group {
+    display: flex; /* Align items in a row */
+    gap: 10px; /* Add spacing between radio buttons */
+    margin-top: 10px; /* Optional: Add some space above the radio group */
+  }
+  
+  .radio-wrapper {
+    display: flex;
+    align-items: center; /* Vertically align the radio button and label */
+  }
+  
+  .radio-wrapper label {
+    margin-left: 5px; /* Add space between the radio button and its label */
+  }
+
+
+ 

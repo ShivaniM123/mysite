@@ -211,11 +211,11 @@ button.secondary {
   color: var(--text-color);
 }
 
-main img {
+/*main img {
   max-width: 100%;
   width: auto;
   height: auto;
-}
+}*/
 
 .icon {
   display: inline-block;
@@ -268,4 +268,18 @@ body {
 
 .time img{
   width: 30%;
+}
+
+
+.cloud , .language {
+  background-color: rgba(255, 192, 203, 0.493);
+}
+
+
+.default-content-wrapper { 
+   display: flex;
+  align-items: center;
+  width: 20px;
+  transform: translateY(10px);
+  height: auto;
 }
