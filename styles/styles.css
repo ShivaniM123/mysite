@@ -251,10 +251,6 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-body {
-  background-color: #EEEEE7;
-}
-
 .time{
   background-color: grey;
 
@@ -266,7 +262,7 @@ body {
 
 
 .cloud , .language {
-  background-color: rgba(255, 192, 203, 0.493);
+  background-color: rgb(255 192 203 / 49.3%);
 }
 
 
@@ -280,7 +276,8 @@ body {
   bottom: 40px;
   right: 40px;
   border-radius: 4px;
-  background-color: rgb(130, 130, 228);
+  background-color: rgb(130 130 228);
   color: white;
+
   --link-hover-color: none;
 }
