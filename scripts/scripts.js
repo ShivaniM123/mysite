@@ -28,41 +28,32 @@ function buildHeroBlock(main) {
   }
 }
 
-
 function buildButton() {
   const main = document.querySelector('main');
   const pageButton = document.createElement('button');
-    pageButton.textContent = 'Back to Top';
-    pageButton.className = 'page-level-btn';
+  pageButton.textContent = 'Back to Top';
+  pageButton.className = 'page-level-btn';
 
   main.appendChild(pageButton);
 
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const viewportHeight = window.innerHeight;
-  const totalHeight = document.documentElement.scrollHeight;
-  const distanceFromBottom = totalHeight - (scrollY + viewportHeight);
-  
-  // Show the button when user scrolls down
-  if (scrollY > 100) {
-    pageButton.style.display = 'block';
-  } 
-  else {
-    pageButton.style.display = 'none';
-  }
-});
+  window.addEventListener('scroll', () => {
+    const { scrollY } = window;
+    // Show the button when user scrolls down
+    if (scrollY > 100) {
+      pageButton.style.display = 'block';
+    } else {
+      pageButton.style.display = 'none';
+    }
+  });
 
   pageButton.addEventListener('click', () => {
-    
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
-       
-    });
-    
-  })
-}
 
+    });
+  });
+}
 
 /**
  * load fonts.css and set a session storage flag
@@ -102,7 +93,6 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   buildButton();
- 
 }
 
 /**
@@ -163,7 +153,5 @@ async function loadPage() {
   await loadLazy(document);
   loadDelayed();
 }
-
-
 
 loadPage();
