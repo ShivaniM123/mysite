@@ -13,6 +13,10 @@
   background-color: var(--background-color)
 }
 
+.cards-card-body{
+display: none;
+}
+
 .cards .cards-card-body {
   margin: 16px;
 }
@@ -30,11 +34,6 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
-
-.cards-card-body{
-display: none;
-}
-
 
 .hidden.cards-card-body{
   display: block;

@@ -112,9 +112,9 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { color: red ; font-size: var(--heading-font-size-xxl); }
+h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-style: italic; color:green; var(--heading-font-size-l); }
+h3 { font-style: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
