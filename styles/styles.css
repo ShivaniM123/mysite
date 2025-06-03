@@ -277,9 +277,16 @@ body {
 
 
 .default-content-wrapper { 
-   display: flex;
-  align-items: center;
-  width: 20px;
-  transform: translateY(10px);
   height: auto;
+}
+
+.page-level-btn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-radius: 4px;
+  background-color: rgb(130, 130, 228);
+  color: white;
+  --link-hover-color: none;
 }
