@@ -133,7 +133,7 @@ main .field-wrapper .required {
     color: black;
   }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
     main .form {
         display: block;
         margin: auto;
