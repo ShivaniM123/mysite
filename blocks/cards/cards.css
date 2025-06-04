@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 16px;
-  align-items: start;   /* Align items to the start */
+  align-items: start;
 }
 
 .cards > ul > li {

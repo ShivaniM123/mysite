@@ -17,17 +17,35 @@ export default function decorate(block) {
     body.className = 'accordion-item-body';
     // decorate accordion item
     const details = document.createElement('details');
-
     details.className = 'accordion-item';
     details.append(summary, body);
+
+
+    
+
+
     row.replaceWith(details);
   });
 
-  const button = document.createElement('button');
-  button.innerText = 'Report';
-  button.classList.add('report-button');
-  block.before(button);
+//
+    const t= document.createElement('table');
+    t.className = 'accordion-table';
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+   // td.innerText=Textg;
+  block.appendChild(t);
+  t.appendChild(tr);
+  tr.appendChild(td);
+
+console.log(block);
+
 }
+
+
+
+
+
+
 
 /* export default function decorate(block) {
   [...block.children].forEach((row, index) => {
