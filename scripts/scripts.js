@@ -33,7 +33,6 @@ function buildButton() {
   const pageButton = document.createElement('button');
   pageButton.textContent = 'Back to Top';
   pageButton.className = 'page-level-btn';
-
   main.appendChild(pageButton);
 
   window.addEventListener('scroll', () => {

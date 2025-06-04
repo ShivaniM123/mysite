@@ -38,7 +38,6 @@ export default function decorate(block) {
       }
       li.insertBefore(newdiv1, bodyDiv);
     }
-
     ul.append(li);
   });
 
