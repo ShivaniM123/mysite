@@ -1,105 +1,73 @@
-/*
- * Accordion Block
- * Recreate an accordion
- * https://www.hlx.live/developer/block-collection/accordion
- */
-
 export default function decorate(block) {
   [...block.children].forEach((row) => {
-    // decorate accordion item label
-    const label = row.children[0];
-    const summary = document.createElement('summary');
-    summary.className = 'accordion-item-label';
-    summary.append(...label.childNodes);
-    // decorate accordion item body
-    const body = row.children[1];
-
-    body.className = 'accordion-item-body';
-    // decorate accordion item
-    const details = document.createElement('details');
-    details.className = 'accordion-item';
-    details.append(summary, body);
-
-
-    
-
-
-    row.replaceWith(details);
-  });
-
-//
-    const t= document.createElement('table');
-    t.className = 'accordion-table';
-    const tr = document.createElement('tr');
-    const td = document.createElement('td');
-   // td.innerText=Textg;
-  block.appendChild(t);
-  t.appendChild(tr);
-  tr.appendChild(td);
-
-console.log(block);
-
-}
-
-
-
-
-
-
-
-/* export default function decorate(block) {
-  [...block.children].forEach((row, index) => {
-    // Decorate accordion item label
+    // Create summary from label
     const label = row.children[0];
     const summary = document.createElement('summary');
     summary.className = 'accordion-item-label';
     summary.append(...label.childNodes);
 
-    // Decorate accordion item body
+    // Create table and rows from body list items
     const body = row.children[1];
-    body.className = 'accordion-item-body';
+    const items = body.querySelectorAll('li');
+    const table = document.createElement('table');
+    table.classList.add('accordion-item-table');
 
-    // Add options with radio buttons based on the accordion index
-    const options = index === 0
-      ? ['AWS', 'Azure', 'GCP'] // First accordion options
-      : ['C', 'C++', 'Java']; // Second accordion options
+    let rowEl;
 
-    options.forEach((option) => {
-      // Add a title for each option
-      const title = document.createElement('p');
-      title.textContent = option;
-      body.appendChild(title);
-
-      // Add 5 radio buttons for each option
-      for (let j = 1; j <= 5; j++) {
-        const radio = document.createElement('input');
-        radio.type = 'radio';
-        const optionName = option.toLowerCase().replace(/\+/g, 'plus');
-        radio.name = `${optionName}-options`; // Group name for each option
-        radio.id = `${option.toLowerCase().replace(/\+/g, 'plus')}-option-${j}`;
-        radio.value = j;
-
-        const label = document.createElement('label');
-        label.htmlFor = radio.id;
-        label.textContent = j;
-        label.style.marginRight = '10px';
-
-        // Append the radio button and label to the body
-        body.append(radio, label);
+    items.forEach((item, i) => {
+      if (i % 3 === 0) {
+        rowEl = document.createElement('tr');
+        rowEl.classList.add('accordion-item-row');
+        table.appendChild(rowEl);
       }
+      const cell = document.createElement('td');
+      cell.classList.add('accordion-item-cell');
+      cell.textContent = item.textContent;
+      rowEl.appendChild(cell);
     });
 
-    // Decorate accordion item
+    // Fill remaining cells
+    const remainder = items.length % 3;
+    if (remainder !== 0) {
+      const emptyCount = 3 - remainder;
+      for (let i = 0; i < emptyCount; i += 1) {
+        const emptyCell = document.createElement('td');
+        emptyCell.classList.add('accordion-item-cell');
+        rowEl.appendChild(emptyCell);
+      }
+    }
+
+    // Add one empty top row
+    const topRow = document.createElement('tr');
+    topRow.classList.add('accordion-item-row');
+    for (let i = 0; i < 3; i += 1) {
+      const emptyCell = document.createElement('td');
+      emptyCell.classList.add('accordion-item-cell');
+      topRow.appendChild(emptyCell);
+    }
+    table.insertBefore(topRow, table.firstChild);
+
+    // Replace content
+    body.innerHTML = '';
+    body.className = 'accordion-item-body';
+    body.appendChild(table);
+
     const details = document.createElement('details');
     details.className = 'accordion-item';
     details.append(summary, body);
-    row.replaceWith(details);
-  });
 
-  // Add a "Report" button before the accordion block
-  const button = document.createElement('button');
-  button.innerText = 'Report';
-  button.classList.add('report-button');
-  block.before(button);
+    row.replaceWith(details);
+
+    // close other accordians
+    const val = document.querySelectorAll('.accordion-item');
+    val.forEach((target) => {
+      target.addEventListener('toggle', () => {
+        if (target.open) {
+          document.querySelectorAll('.accordion-item').forEach((el) => {
+            if (el !== target) el.removeAttribute('open');
+          });
+        }
+      });
+    });
+  });
 }
-  */

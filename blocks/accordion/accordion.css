@@ -1,7 +1,7 @@
-.accordion details {
+/* .accordion details {
     border: 1px solid #dadada;
   }
-  
+   */
   /* stylelint-disable-next-line no-descending-specificity */
   .accordion details + details {
     margin-top: 24px;
@@ -52,26 +52,44 @@
   }
   
   .accordion details .accordion-item-body {
-    padding: 0 16px;
+    padding: 16px;
+    border-bottom: 5px solid #dadada;
   }
   
   .accordion details[open] .accordion-item-body {
     border-top: 1px solid #dadada;
     background-color: var(--background-color);
+    margin-left: 0;
   }
 
-
-  /* .report-button {
-    background-color: #36f;
-    padding: 8px 16px;
-    font-weight: bold;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-  } */
-
   .accordion {
-     max-width: 500px;
+     max-width: 100%;
      margin: 0 auto;
     padding: 40px;
   }
+
+  .accordion-item-table{
+    width: 100%;
+    text-align: left;
+        border-bottom: 1px solid #787878;
+            font-family: "Montserrat SemiBold", sans-serif;
+            border-bottom-color: #464646;
+  }
+   
+  .accordion-item-cell{
+    padding: 15px;
+    height: 30px;
+    margin: 0;
+  }
+
+
+  .accordion-item-row:nth-child(odd) {
+  background-color: rgb(195 191 191 / 73.8%);
+  width: 100%;
+}
+
+.accordion-line-bottom{
+  height:30px;
+}
+
+
