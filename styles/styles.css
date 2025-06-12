@@ -112,9 +112,9 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { color: red ; font-size: var(--heading-font-size-xxl); }
+h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-style: italic; color:green; var(--heading-font-size-l); }
+h3 { font-style: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
@@ -211,12 +211,6 @@ button.secondary {
   color: var(--text-color);
 }
 
-/*main img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-}*/
-
 .icon {
   display: inline-block;
   height: 24px;
@@ -257,10 +251,6 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-body {
-  background-color: #EEEEE7;
-}
-
 .time{
   background-color: grey;
 
@@ -271,15 +261,23 @@ body {
 }
 
 
-.cloud , .language {
-  background-color: rgba(255, 192, 203, 0.493);
+.cloud , .language{
+  background-color: rgb(255 192 203 / 49.3%);
 }
 
 
 .default-content-wrapper { 
-   display: flex;
-  align-items: center;
-  width: 20px;
-  transform: translateY(10px);
   height: auto;
+}
+
+.page-level-btn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-radius: 4px;
+  background-color: rgb(130 130 228);
+  color: white;
+
+  --link-hover-color: none;
 }
