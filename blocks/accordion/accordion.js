@@ -1,3 +1,5 @@
+import { createTag } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
   [...block.children].forEach((row) => {
     // Create summary from label
@@ -13,12 +15,10 @@ export default function decorate(block) {
     let rowEl;
     items.forEach((item, i) => {
       if (i % 3 === 0) {
-        rowEl = document.createElement('tr');
-        rowEl.classList.add('accordion-item-row');
+        rowEl = createTag('tr', { class: 'accordion-item-row' });
         table.appendChild(rowEl);
       }
-      const cell = document.createElement('td');
-      cell.classList.add('accordion-item-cell');
+      const cell = createTag('td', { class: 'accordion-item-cell' });
       cell.textContent = item.textContent;
       rowEl.appendChild(cell);
     });
@@ -27,17 +27,14 @@ export default function decorate(block) {
     if (remainder !== 0) {
       const emptyCount = 3 - remainder;
       for (let i = 0; i < emptyCount; i += 1) {
-        const emptyCell = document.createElement('td');
-        emptyCell.classList.add('accordion-item-cell');
+        const emptyCell = createTag('td', { class: 'accordion-item-cell' });
         rowEl.appendChild(emptyCell);
       }
     }
     // Add one empty top row
-    const topRow = document.createElement('tr');
-    topRow.classList.add('accordion-item-row');
+    const topRow = createTag('tr', { class: 'accordion-item-row' });
     for (let i = 0; i < 3; i += 1) {
-      const emptyCell = document.createElement('td');
-      emptyCell.classList.add('accordion-item-cell');
+      const emptyCell = createTag('td', { class: 'accordion-item-cell' });
       topRow.appendChild(emptyCell);
     }
     table.insertBefore(topRow, table.firstChild);
