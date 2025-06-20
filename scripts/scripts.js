@@ -108,6 +108,31 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  fetch('/query-index.json')
+    .then((res) => res.json())
+    .then((output) => {
+      const currentPath = window.location.pathname;
+      let i; let pageData;
+      for (i = 0; i < output.total; i += 1) {
+        if (output.data[i].path === currentPath) {
+          pageData = output.data[i];
+        }
+      }
+      if (pageData) {
+        const datechanged = pageData.lastModified;
+        const date = new Date(datechanged * 1000);
+        const formatted = `${date.toLocaleDateString('en-US', { month: 'short' })} ${date.getDate()}, ${date.getFullYear()}`;
+        const str = `Last Modified on ${formatted}`;
+        // create a div to display the last modified date
+        const info = document.createElement('div');
+        info.textContent = str;
+        main.appendChild(info);
+      }
+    })
+    .catch((err) => {
+      console.error('Error fetching query-index.json:', err);
+    });
 }
 
 /**
