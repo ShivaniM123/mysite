@@ -129,9 +129,6 @@ async function loadLazy(doc) {
         info.textContent = str;
         main.appendChild(info);
       }
-    })
-    .catch((err) => {
-      console.error('Error fetching query-index.json:', err);
     });
 }
 
