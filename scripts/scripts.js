@@ -28,6 +28,30 @@ function buildHeroBlock(main) {
   }
 }
 
+// Top to bottom Button
+function backToTop() {
+  const main = document.querySelector('main');
+  const pageButton = document.createElement('button');
+  pageButton.innerHTML = 'Back to Top';
+  pageButton.className = 'page-level-btn';
+  main.appendChild(pageButton);
+  window.addEventListener('scroll', () => {
+    const { scrollY } = window;
+    // Show the button when user scrolls down
+    if (scrollY > 100) {
+      pageButton.style.display = 'block';
+    } else {
+      pageButton.style.display = 'none';
+    }
+  });
+  pageButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+}
+
 /**
  * load fonts.css and set a session storage flag
  */
@@ -65,6 +89,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  backToTop();
 }
 
 /**
