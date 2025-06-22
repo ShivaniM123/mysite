@@ -126,6 +126,7 @@ async function loadLazy(doc) {
         const str = `Last Modified on ${formatted}`;
         // create a div to display the last modified date
         const info = document.createElement('div');
+        info.classList.add('last-modified');
         info.textContent = str;
         main.appendChild(info);
       }

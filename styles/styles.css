@@ -281,3 +281,7 @@ main .section.highlight {
 
   --link-hover-color: none;
 }
+
+.last-modified {
+    margin-left: 265px;
+}
