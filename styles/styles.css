@@ -273,11 +273,15 @@ main .section.highlight {
 .page-level-btn {
   display: none;
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  border-radius: 4px;
-  background-color: rgb(130 130 228);
-  color: white;
+  bottom: 41px;
+  right: 41px;
+  border-radius: 5px;
+  background-color: rgb(249 244 244 / 94.3%);
+  color: #1021c1b4;
 
   --link-hover-color: none;
+}
+
+.page-level-btn:hover {
+   color: #5a95d0;
 }
