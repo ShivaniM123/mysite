@@ -282,8 +282,8 @@ main .section.highlight {
   --link-hover-color: none;
 }
 
-.last-modified {
+main .last-modified {
     max-width: 1200px;
     margin: auto;
-    padding: 0 24px;
+    padding: 0 32px;
 }
