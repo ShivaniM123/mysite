@@ -28,27 +28,29 @@ function buildHeroBlock(main) {
   }
 }
 
-// Top to bottom Button
 function backToTop() {
   const main = document.querySelector('main');
   const pageButton = document.createElement('button');
   pageButton.innerHTML = 'Back to Top';
   pageButton.className = 'page-level-btn';
+  pageButton.style.display = 'none';
   main.appendChild(pageButton);
+
   window.addEventListener('scroll', () => {
     const { scrollY } = window;
-    // Show the button when user scrolls down
-    if (scrollY > 100) {
+    const windowHeight = window.innerHeight; // viewport height
+    const fullHeight = document.documentElement.scrollHeight; // full document height
+    const nearBottom = (scrollY + windowHeight) >= (fullHeight - 100);
+
+    if (scrollY > 100 && !nearBottom) {
       pageButton.style.display = 'block';
     } else {
       pageButton.style.display = 'none';
     }
   });
+
   pageButton.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
