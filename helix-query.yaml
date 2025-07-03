@@ -4,6 +4,10 @@ indices:
   default:
     target: /query-index
     properties:
+      author:
+        select: head > meta[property="name=author"]
+        value: |
+          attribute(el, 'content')
       title:
         select: head > meta[property="og:title"]
         value: |
